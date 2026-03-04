@@ -182,6 +182,11 @@
   .related-card-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
   .related-card-type{font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase;font-weight:500}
 
+  /* Responsive video — desktop horizontal / mobile vertical */
+  .responsive-video{position:relative;width:100%;background:#111}
+  .responsive-video video{width:100%;display:block}
+  .vid-mobile{display:none}
+
   /* ═══════════════════════════════════════════
      RESPONSIVE
      ═══════════════════════════════════════════ */
@@ -209,6 +214,8 @@
     .pullquote-block{padding-left:20px}
     .results-block{padding:28px}
     .ed-giant-title{letter-spacing:-1px}
+    .vid-desktop{display:none !important}
+    .vid-mobile{display:block !important}
   }
   @media(max-width:480px){
     .masthead h1{font-size:28px}
@@ -234,22 +241,22 @@
 <div class="wrap" id="wrap"></div>
 
 <script>
-const BRAND="VELORA";
-const TAG="Redefining Modern Wellness";
-const SUB="A complete brand ecosystem — from strategic positioning to packaging, digital experience, and beyond.";
-const SVCS=["Strategy","Visual Identity","Packaging Design","Digital Experience","Brand Communications","Content Creation","Event Activation","Motion Design"];
+const BRAND="GRASSROOTS";
+const TAG="Field Notes";
+const SUB="An art gallery meets connoisseur tasting — a first-of-its-kind trade event redefining cannabis brand activation in Illinois.";
+const SVCS=["Event Design","Brand Activation","Experiential Marketing","Art Direction","Environmental Design","Content Production","Motion Design"];
 
 // ── Copy blocks ──
-const COPY_LEAD="Velora came to Small Circle at a pivotal moment. They had a powerful product line and a clear mission — to redefine modern wellness — but their brand presence didn't reflect the sophistication of what they'd built.";
-const COPY_DETAIL="Their existing identity felt fragmented across channels, their packaging lacked shelf presence, and their digital experience wasn't converting. They needed a partner who could see the full picture and rebuild from the foundation up.";
-const COPY_STRATEGY="We began with an immersive discovery phase — interviewing stakeholders, auditing competitors, and mapping the wellness landscape to understand where Velora could own space. The market was crowded with brands that either leaned clinical or leaned lifestyle. Velora had an opportunity to occupy the space in between — credible but approachable, premium but not pretentious.";
-const COPY_IDENTITY="The visual identity system grew from the strategic foundation: a refined color palette, custom typography pairings, and a flexible design language that could stretch from product packaging to social content to retail environments. Every element was designed to communicate clarity, calm, and confidence.";
-const COPY_PACKAGING="The packaging system was designed to stand out in both direct-to-consumer and retail contexts — clean, confident, and unmistakably Velora. Material choices and finishing techniques were selected to reinforce the premium positioning while remaining sustainable.";
-const COPY_DIGITAL="We extended the identity into a fully responsive digital experience — an e-commerce platform that converts while telling the brand story. The site architecture was designed around customer journeys, not just product categories.";
-const COPY_APPROACH="Our process began with immersive research — understanding not just the market, but the emotional territory Velora needed to own. Through workshops, competitive audits, and audience mapping, we identified a positioning that balances clinical precision with approachable warmth.";
-const COPY_RESULTS="Within six months of launch, Velora saw a 340% increase in direct-to-consumer sales, secured placement in 200+ retail locations, and was featured in three major wellness publications. The rebrand didn't just change how Velora looked — it changed how the market perceived them.";
-const PULL_QUOTE="We didn't want another wellness brand that whispers. Velora needed to speak with quiet authority.";
-const COPY_EXTENDED="Small Circle partnered with Velora to create an entirely new brand ecosystem. Starting with strategic positioning and competitive analysis, we developed a visual identity system that communicates clarity, calm, and confidence. The work extended across packaging design for their full product line, a responsive digital experience, and a comprehensive brand communications toolkit — ensuring every touchpoint tells a cohesive story. From the earliest conversations, it was clear that Velora needed more than a visual identity. They needed a complete language — verbal, visual, spatial — that could carry their vision across every medium.";
+const COPY_LEAD="Field Notes was a first-of-its-kind trade event for Grassroots, Curaleaf\u2019s premium cannabis flower brand \u2014 designed to immerse Illinois budtenders in the craft, quality, and culture behind the product they recommend every day.";
+const COPY_DETAIL="Cannabis trade events had become predictable \u2014 booths, swag, and product demos that all blurred together. Grassroots needed something that would cut through the noise and create a genuine connection between the people growing the flower and the people selling it.";
+const COPY_STRATEGY="We developed the Field Notes concept around the idea that appreciating cannabis is no different from appreciating fine wine or craft spirits. The format borrowed from connoisseur culture \u2014 guided tastings, curated environments, and direct access to the master grower \u2014 while the aesthetic drew from the contemporary art world. Every detail was designed to elevate the perception of what a cannabis trade event could be.";
+const COPY_IDENTITY="The Field Notes visual identity walked a careful line \u2014 elevated and gallery-worthy without losing the raw, earthy authenticity of the Grassroots brand. We developed a design language rooted in macro photography, tactile textures, and restrained typography that let the product be the hero.";
+const COPY_GALLERY="The gallery installation transformed the event space into an immersive brand experience. High-resolution macro photography of Grassroots flower was printed at large scale and arranged like fine art \u2014 giving budtenders an entirely new perspective on the product they sell daily.";
+const COPY_TASTING="The centerpiece of Field Notes was the guided group tasting \u2014 small groups of budtenders, outfitted in branded lab coats, sampling pre-loaded glass chillums under the guidance of the Grassroots master grower. Each strain was presented with tasting notes and growing context, turning a product demo into a sensory experience.";
+const COPY_APPROACH="Our approach was rooted in a simple insight: budtenders are the most influential touchpoint in cannabis retail, yet brands rarely invest in creating meaningful experiences for them. Field Notes was designed to change that \u2014 to make budtenders feel like insiders, not just salespeople. Every element, from the DJ and food program to the custom lab coats, reinforced that this was something different.";
+const COPY_RESULTS="Field Notes exceeded every benchmark. Attendee feedback was overwhelmingly positive, with budtenders reporting deeper understanding and genuine appreciation of the Grassroots brand. More significantly, the look and feel developed for Field Notes ended up informing much of the evolution of the Grassroots brand identity itself \u2014 and the event format was greenlit for replication across the country.";
+const PULL_QUOTE="We wanted budtenders to walk away feeling like insiders \u2014 not like they\u2019d just been to another trade event.";
+const COPY_EXTENDED="Small Circle partnered with Curaleaf to conceive, design, and produce Field Notes \u2014 a trade event format for Grassroots that reimagined what brand activation looks like in the cannabis industry. Drawing from the worlds of fine art and connoisseur culture, we created an experience that paired macro photography galleries with guided flower tastings led by the master grower. Attendees donned branded lab coats and moved through curated stations \u2014 tasting pre-loaded chillums, studying large-format botanical photography, and engaging directly with the cultivators. The event was backed by a full sensory program including a DJ set, a curated food and drinks program, and environmental design that transformed a standard venue into something extraordinary. What started as a single Illinois activation became a blueprint \u2014 the format, visual language, and brand positioning developed for Field Notes went on to shape the broader evolution of the Grassroots brand nationwide.";
 
 function mkImg(w,h,hue,sat,lit,label){
   const c=document.createElement("canvas");c.width=w;c.height=h;
@@ -258,35 +265,52 @@ function mkImg(w,h,hue,sat,lit,label){
   g.addColorStop(0,`hsl(${hue},${sat}%,${lit}%)`);
   g.addColorStop(1,`hsl(${hue+25},${sat+5}%,${lit+5}%)`);
   x.fillStyle=g;x.fillRect(0,0,w,h);
-  if(label){x.fillStyle=`rgba(255,255,255,0.06)`;x.font=`600 ${Math.min(w,h)/4}px -apple-system,sans-serif`;x.textAlign="center";x.textBaseline="middle";x.fillText(label,w/2,h/2)}
+  if(label){x.fillStyle="rgba(255,255,255,0.06)";x.font=`600 ${Math.min(w,h)/4}px -apple-system,sans-serif`;x.textAlign="center";x.textBaseline="middle";x.fillText(label,w/2,h/2)}
   return c.toDataURL();
 }
 
 const I={};
 function initImgs(){
-  I.hero=mkImg(1400,700,220,18,22,"HERO");
-  I.a=mkImg(800,600,240,15,25,"PACKAGING");
-  I.b=mkImg(800,600,200,12,28,"IDENTITY");
-  I.c=mkImg(800,600,280,10,20,"WEBSITE");
-  I.d=mkImg(800,500,180,14,24,"CAMPAIGN");
-  I.e=mkImg(1200,500,250,12,18,"RETAIL");
-  I.f=mkImg(700,900,210,16,26,"PRODUCT");
-  // New images for compositional variety
-  I.g=mkImg(900,500,190,14,22,"STRATEGY");       // landscape
-  I.h=mkImg(600,600,260,10,30,"PATTERN");         // square
-  I.vid=mkImg(1400,788,170,16,20,"VIDEO");        // 16:9 video
-  I.gif=mkImg(700,700,230,12,24,"GIF");           // square gif
-  I.rel1=mkImg(600,450,300,14,22,"REL-A");        // related project
-  I.rel2=mkImg(600,450,160,16,28,"REL-B");        // related project
-  I.rel3=mkImg(600,450,330,10,20,"REL-C");        // related project
+  // Real Field Notes event assets
+  I.art1="Artboard%201.png";       // "MADE WITH PASSION" starburst (landscape)
+  I.art2="Artboard%202.png";       // "horticulturist meets mad scientist" (landscape)
+  I.poster1="Poster%201.png";      // Grower quote poster (portrait)
+  I.poster2="Poster%202.png";      // Cultivars poster (portrait)
+  I.s1="strain%201.png";           // Ray Charles tasting card (portrait)
+  I.s2="strain%202.png";           // Jordanz tasting card (portrait)
+  I.s3="strain%203.png";           // Titan Express tasting card (portrait)
+  // Layout slot assignments (real assets + placeholders for missing event photos)
+  I.hero=I.art1;
+  I.a=I.art2;
+  I.b=I.art1;
+  I.c=mkImg(800,600,90,12,20,"ATMOSPHERE");
+  I.d=mkImg(800,500,45,14,24,"LAB COATS");
+  I.e=I.art2;
+  I.f=I.poster1;
+  I.g=mkImg(900,500,100,14,22,"DJ + FOOD");
+  I.h=I.poster2;
+  I.vid=mkImg(1400,788,140,16,20,"VIDEO");
+  I.gif=mkImg(700,700,30,12,24,"BTS");
+  I.rel1=mkImg(600,450,145,14,22,"REL-A");
+  I.rel2=mkImg(600,450,40,16,28,"REL-B");
+  I.rel3=mkImg(600,450,110,10,20,"REL-C");
 }
 initImgs();
 
-const logo=()=>`<div class="client-logo"><div class="client-circle"><span>V</span></div><span class="client-name">${BRAND}</span></div>`;
+const logo=()=>`<div class="client-logo"><div class="client-circle"><span style="font-size:9px">GR</span></div><span class="client-name">${BRAND}</span></div>`;
 const pills=()=>`<div class="pills">${SVCS.map(s=>`<span class="pill">${s}</span>`).join("")}</div>`;
-const metaInfo=()=>`<div class="meta-info"><span>2025</span><span>Miami, FL</span><span>Brand Ecosystem</span></div>`;
+const metaInfo=()=>`<div class="meta-info"><span>2025</span><span>Illinois</span><span>Trade Event</span></div>`;
 const img=(src,s="")=>`<img src="${src}" style="${s}">`;
 const fade=(html,d=0)=>`<div class="fade" style="transition-delay:${d}s">${html}</div>`;
+
+const responsiveVideo=()=>`<div class="responsive-video">
+  <video class="vid-desktop" autoplay muted loop playsinline poster="poster-horizontal.jpg">
+    <source src="field-notes-horizontal.mp4" type="video/mp4">
+  </video>
+  <video class="vid-mobile" autoplay muted loop playsinline poster="poster-vertical.jpg">
+    <source src="field-notes-vertical.mp4" type="video/mp4">
+  </video>
+</div>`;
 
 function sh(num,title){
   return `<div style="text-align:center;padding:48px 24px 32px">
@@ -330,12 +354,12 @@ function narrHeading(num, title) {
 // ══════════════════════════════════════════════════════════
 // LAYOUT 1: Visual Mosaic (Yellowbird-inspired)
 // Maximum compositional variety — portrait pairs, asymmetric
-// grids, video placeholder, GIF, section labels, pull-quotes
+// grids, responsive video, GIF, section labels, pull-quotes
 // woven between constantly shifting image arrangements.
 // ══════════════════════════════════════════════════════════
 function L1(){
   return sh("01","Visual Mosaic")+
-  `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Inspired by the compositional variety of portfolio-driven case studies. Constantly shifting grid structures — portrait pairs, asymmetric layouts, video, and GIF placeholders — keep the eye moving.</p>`+
+  `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Inspired by the compositional variety of portfolio-driven case studies. Constantly shifting grid structures \u2014 portrait pairs, asymmetric layouts, video, and GIF placeholders \u2014 keep the eye moving.</p>`+
 
   // Full-bleed hero
   fade(`<div class="bleed">${masthead()}</div>`)+
@@ -346,27 +370,27 @@ function L1(){
   // Lead + Read More
   fade(`<div class="article" style="margin-top:40px">
     <p class="lead">${COPY_LEAD}</p>
-    <button class="read-more-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === 'READ MORE +' ? 'SHOW LESS −' : 'READ MORE +'">READ MORE +</button>
+    <button class="read-more-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === 'READ MORE +' ? 'SHOW LESS \u2212' : 'READ MORE +'">READ MORE +</button>
     <div class="read-more-content">
       <p>${COPY_DETAIL}</p>
       <p>${COPY_STRATEGY}</p>
     </div>
   </div>`,0.15)+
 
-  // Section label (in content area)
-  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">BRAND IDENTITY</div></div>`,0.08)+
+  // Section label
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE EVENT IDENTITY</div></div>`,0.08)+
 
   // Portrait pair — full bleed
   fade(`<div class="bleed"><div class="img-pair-portrait">
     ${img(I.f)}
-    ${img(I.b,"aspect-ratio:3/4;object-fit:cover")}
+    ${img(I.poster2,"aspect-ratio:3/4;object-fit:cover")}
   </div></div>`,0.1)+
 
   // Full-bleed wide image
   fade(`<div class="bleed" style="margin:8px 0">${img(I.e,"width:100%;display:block")}</div>`,0.1)+
 
   // Section label
-  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">PACKAGING SYSTEM</div></div>`,0.08)+
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE GALLERY</div></div>`,0.08)+
 
   // Asymmetric — full bleed
   fade(`<div class="bleed"><div class="img-asym">
@@ -376,30 +400,27 @@ function L1(){
 
   // Interstitial pull-quote
   fade(`<div class="article">
-    <p class="interstitial-quote">"The identity needed to feel both clinical and human — precise yet warm."</p>
+    <p class="interstitial-quote">\u201C${PULL_QUOTE}\u201D</p>
   </div>`,0.1)+
 
-  // Video placeholder — full bleed
-  fade(`<div class="bleed"><div class="video-placeholder">
-    ${img(I.vid)}
-    <div class="video-play"></div>
-  </div></div>`,0.1)+
+  // Responsive video — full bleed
+  fade(`<div class="bleed">${responsiveVideo()}</div>`,0.1)+
 
   // Section label
-  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">DIGITAL EXPERIENCE</div></div>`,0.08)+
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE TASTING EXPERIENCE</div></div>`,0.08)+
 
   // Triple grid — full bleed
   fade(`<div class="bleed"><div class="img-triple">
-    ${img(I.c)}
-    ${img(I.d)}
-    ${img(I.g)}
+    ${img(I.s1)}
+    ${img(I.s2)}
+    ${img(I.s3)}
   </div></div>`,0.1)+
 
   // Full-bleed break
   fade(`<div class="bleed" style="margin:8px 0">${img(I.hero,"width:100%;display:block")}</div>`,0.1)+
 
   // Section label
-  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">RETAIL ENVIRONMENT</div></div>`,0.08)+
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE ATMOSPHERE</div></div>`,0.08)+
 
   // Asymmetric reversed — full bleed
   fade(`<div class="bleed"><div class="img-asym-rev">
@@ -423,8 +444,8 @@ function L1(){
 
   // Results
   fade(`<div class="article" style="margin-top:56px">
-    <div class="h-section">The Outcome</div>
-    <h2 class="h-article">The numbers tell the story</h2>
+    <div class="h-section">The Impact</div>
+    <h2 class="h-article">From one event to a national blueprint</h2>
     <p>${COPY_RESULTS}</p>
   </div>`,0.1);
 }
@@ -438,7 +459,7 @@ function L1(){
 // ══════════════════════════════════════════════════════════
 function L2(){
   return sh("02","Narrative Arc")+
-  `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Chapter-based storytelling — numbered sections, expandable accordions, and structured metadata. Each image group is preceded by a narrative heading that walks through the project chronologically.</p>`+
+  `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Chapter-based storytelling \u2014 numbered sections, expandable accordions, and structured metadata. Each image group is preceded by a narrative heading that walks through the project chronologically.</p>`+
 
   // Hero — full bleed
   fade(`<div class="bleed">${img(I.hero,"width:100%;display:block")}</div>`)+
@@ -446,10 +467,10 @@ function L2(){
   // Metadata grid
   fade(`<div class="article-wide">
     <div class="hero-meta-grid">
-      <div class="hero-meta-item"><div class="label">Category</div><div class="value">Brand Identity</div></div>
-      <div class="hero-meta-item"><div class="label">Industry</div><div class="value">Wellness</div></div>
-      <div class="hero-meta-item"><div class="label">Location</div><div class="value">Miami, FL</div></div>
-      <div class="hero-meta-item"><div class="label">Duration</div><div class="value">3 Months</div></div>
+      <div class="hero-meta-item"><div class="label">Category</div><div class="value">Trade Event</div></div>
+      <div class="hero-meta-item"><div class="label">Industry</div><div class="value">Cannabis</div></div>
+      <div class="hero-meta-item"><div class="label">Location</div><div class="value">Illinois</div></div>
+      <div class="hero-meta-item"><div class="label">Client</div><div class="value">Curaleaf / Grassroots</div></div>
       <div class="hero-meta-item"><div class="label">Year</div><div class="value">2025</div></div>
     </div>
   </div>`,0.1)+
@@ -469,50 +490,50 @@ function L2(){
     ${expandToggle("Our Approach",`<p>${COPY_APPROACH}</p>`)}
   </div>`,0.15)+
 
-  // Chapter 01: Starting Point
-  fade(`<div class="article-wide">${narrHeading("01","STARTING POINT")}<p style="max-width:600px">${COPY_LEAD}</p></div>`,0.1)+
+  // Chapter 01: The Brief
+  fade(`<div class="article-wide">${narrHeading("01","THE BRIEF")}<p style="max-width:600px">${COPY_LEAD}</p></div>`,0.1)+
   fade(`<div class="bleed" style="margin-top:24px">${img(I.e,"width:100%;display:block")}</div>`,0.1)+
 
-  // Chapter 02: Brand Strategy
-  fade(`<div class="article-wide">${narrHeading("02","BRAND STRATEGY")}<p style="max-width:600px">${COPY_STRATEGY}</p></div>`,0.1)+
+  // Chapter 02: The Concept
+  fade(`<div class="article-wide">${narrHeading("02","THE CONCEPT")}<p style="max-width:600px">${COPY_STRATEGY}</p></div>`,0.1)+
   fade(`<div class="bleed" style="margin-top:24px"><div class="img-pair">
     ${img(I.b)}
     ${img(I.a)}
   </div></div>`,0.1)+
 
-  // Chapter 03: Visual Identity
-  fade(`<div class="article-wide">${narrHeading("03","VISUAL IDENTITY")}<p style="max-width:600px">${COPY_IDENTITY}</p></div>`,0.1)+
+  // Chapter 03: The Identity
+  fade(`<div class="article-wide">${narrHeading("03","THE IDENTITY")}<p style="max-width:600px">${COPY_IDENTITY}</p></div>`,0.1)+
   fade(`<div class="bleed" style="margin-top:24px"><div class="img-asym">
     ${img(I.g)}
     ${img(I.h)}
   </div></div>`,0.1)+
 
-  // Chapter 04: Key Message
-  fade(`<div class="article-wide">${narrHeading("04","KEY MESSAGE")}<p class="interstitial-quote" style="margin:0 0 28px">"${PULL_QUOTE}"</p></div>`,0.1)+
-  fade(`<div class="bleed">${img(I.vid,"width:100%;display:block")}</div>`,0.1)+
+  // Chapter 04: The Experience
+  fade(`<div class="article-wide">${narrHeading("04","THE EXPERIENCE")}<p class="interstitial-quote" style="margin:0 0 28px">\u201C${PULL_QUOTE}\u201D</p></div>`,0.1)+
+  fade(`<div class="bleed">${responsiveVideo()}</div>`,0.1)+
 
-  // Chapter 05: Packaging
-  fade(`<div class="article-wide">${narrHeading("05","PACKAGING")}</div>`,0.08)+
+  // Chapter 05: The Gallery
+  fade(`<div class="article-wide">${narrHeading("05","THE GALLERY")}<p style="max-width:600px">${COPY_GALLERY}</p></div>`,0.08)+
   fade(`<div class="bleed"><div class="img-pair-portrait">
     ${img(I.f)}
-    ${img(I.a,"aspect-ratio:3/4;object-fit:cover")}
+    ${img(I.poster2,"aspect-ratio:3/4;object-fit:cover")}
   </div></div>`,0.1)+
-  fade(`<div class="bleed" style="margin-top:8px">${img(I.d,"width:100%;display:block")}</div>`,0.1)+
+  fade(`<div class="bleed" style="margin-top:8px">${img(I.art1,"width:100%;display:block")}</div>`,0.1)+
 
-  // Chapter 06: Digital Experience
-  fade(`<div class="article-wide">${narrHeading("06","DIGITAL EXPERIENCE")}</div>`,0.08)+
+  // Chapter 06: The Tasting
+  fade(`<div class="article-wide">${narrHeading("06","THE TASTING")}<p style="max-width:600px">${COPY_TASTING}</p></div>`,0.08)+
   fade(`<div class="bleed"><div class="img-triple">
-    ${img(I.c)}
-    ${img(I.b)}
-    ${img(I.d)}
+    ${img(I.s1)}
+    ${img(I.s2)}
+    ${img(I.s3)}
   </div></div>`,0.1)+
 
-  // Chapter 07: The Result
-  fade(`<div class="article-wide">${narrHeading("07","FINAL RESULT")}</div>`,0.08)+
+  // Chapter 07: The Impact
+  fade(`<div class="article-wide">${narrHeading("07","THE IMPACT")}</div>`,0.08)+
   fade(`<div class="bleed">${img(I.hero,"width:100%;display:block")}</div>`,0.1)+
   fade(`<div class="article" style="margin-top:40px">
-    <div class="h-section" style="margin-top:0">The Outcome</div>
-    <h2 class="h-article">The numbers tell the story</h2>
+    <div class="h-section" style="margin-top:0">The Impact</div>
+    <h2 class="h-article">From one event to a national blueprint</h2>
     <p>${COPY_RESULTS}</p>
   </div>`,0.1);
 }
@@ -526,7 +547,7 @@ function L2(){
 // ══════════════════════════════════════════════════════════
 function L3(){
   return sh("03","Editorial")+
-  `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Typography-forward opening — a large headline and extended narrative before any imagery. Includes pull-quote callouts, a stats block, and a "Related Projects" grid footer. Reads like a design publication feature.</p>`+
+  `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Typography-forward opening \u2014 a large headline and extended narrative before any imagery. Includes pull-quote callouts, a stats block, and a \u201CRelated Projects\u201D grid footer. Reads like a design publication feature.</p>`+
 
   // Top bar: logo + meta
   fade(`<div class="article-wide" style="padding-top:16px">
@@ -565,33 +586,33 @@ function L3(){
   // Pull-quote
   fade(`<div class="article-wide" style="padding:0 24px">
     <div class="pullquote-block">
-      <p class="pullquote-text">"${PULL_QUOTE}"</p>
-      <div class="pullquote-attr">— Creative Director, Small Circle</div>
+      <p class="pullquote-text">\u201C${PULL_QUOTE}\u201D</p>
+      <div class="pullquote-attr">\u2014 Creative Director, Small Circle</div>
     </div>
   </div>`,0.1)+
 
-  // Full-bleed image
-  fade(`<div class="bleed">${img(I.e,"width:100%;display:block")}</div>`,0.1)+
+  // Responsive video — full bleed
+  fade(`<div class="bleed">${responsiveVideo()}</div>`,0.1)+
 
   // Results stats block
   fade(`<div class="article-wide" style="padding:0 24px">
     <div class="results-block">
-      <div class="result-item"><div class="result-num">340%</div><div class="result-label">DTC Sales Increase</div></div>
-      <div class="result-item"><div class="result-num">200+</div><div class="result-label">Retail Locations</div></div>
-      <div class="result-item"><div class="result-num">3</div><div class="result-label">Press Features</div></div>
-      <div class="result-item"><div class="result-num">1</div><div class="result-label">Unified System</div></div>
+      <div class="result-item"><div class="result-num">200+</div><div class="result-label">Budtenders Hosted</div></div>
+      <div class="result-item"><div class="result-num">8</div><div class="result-label">Strains Featured</div></div>
+      <div class="result-item"><div class="result-num">5+</div><div class="result-label">Markets Replicated</div></div>
+      <div class="result-item"><div class="result-num">1</div><div class="result-label">Brand Transformation</div></div>
     </div>
   </div>`,0.1)+
 
   // Triple grid — full bleed
   fade(`<div class="bleed"><div class="img-triple">
-    ${img(I.b)}
-    ${img(I.c)}
-    ${img(I.d)}
+    ${img(I.s1)}
+    ${img(I.s2)}
+    ${img(I.s3)}
   </div></div>`,0.1)+
 
-  // Full-bleed brand application
-  fade(`<div class="bleed" style="margin-top:8px">${img(I.vid,"width:100%;display:block")}</div>`,0.1)+
+  // Full-bleed image
+  fade(`<div class="bleed" style="margin-top:8px">${img(I.e,"width:100%;display:block")}</div>`,0.1)+
 
   // Rule before related
   fade(`<div class="article-wide" style="padding:48px 24px 0"><div style="height:1px;background:#e0e0e0"></div></div>`,0.1)+
@@ -600,28 +621,28 @@ function L3(){
   fade(`<div class="article-wide" style="padding:40px 24px 0">
     <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
       <div class="section-label" style="margin-bottom:0">RELATED PROJECTS</div>
-      <span style="font-size:11px;color:#999;letter-spacing:1px;cursor:pointer;font-weight:600">VIEW ALL →</span>
+      <span style="font-size:11px;color:#999;letter-spacing:1px;cursor:pointer;font-weight:600">VIEW ALL \u2192</span>
     </div>
     <div class="related-grid">
       <div class="related-card">
         ${img(I.rel1,"aspect-ratio:4/3;object-fit:cover;border-radius:4px")}
         <div class="related-card-info">
-          <div class="related-card-title">Aurelia Botanics</div>
-          <div class="related-card-type">Brand Identity</div>
+          <div class="related-card-title">Select Live</div>
+          <div class="related-card-type">Event Activation</div>
         </div>
       </div>
       <div class="related-card">
         ${img(I.rel2,"aspect-ratio:4/3;object-fit:cover;border-radius:4px")}
         <div class="related-card-info">
-          <div class="related-card-title">Meridian Health</div>
-          <div class="related-card-type">Digital Experience</div>
+          <div class="related-card-title">Grassroots Rebrand</div>
+          <div class="related-card-type">Brand Identity</div>
         </div>
       </div>
       <div class="related-card">
         ${img(I.rel3,"aspect-ratio:4/3;object-fit:cover;border-radius:4px")}
         <div class="related-card-info">
-          <div class="related-card-title">Forma Studio</div>
-          <div class="related-card-type">Packaging Design</div>
+          <div class="related-card-title">Curaleaf National</div>
+          <div class="related-card-type">Campaign</div>
         </div>
       </div>
     </div>
@@ -637,9 +658,9 @@ let current=0;
 
 function footNav(idx){
   let h=`<div class="foot"><div class="foot-rule"></div><div class="foot-btns">`;
-  if(idx>0)h+=`<button class="foot-btn" onclick="go(${idx-1})">← PREV</button>`;
-  if(idx<2)h+=`<button class="foot-btn primary" onclick="go(${idx+1})">NEXT →</button>`;
-  else h+=`<button class="foot-btn primary" onclick="go(3)">RECAP →</button>`;
+  if(idx>0)h+=`<button class="foot-btn" onclick="go(${idx-1})">\u2190 PREV</button>`;
+  if(idx<2)h+=`<button class="foot-btn primary" onclick="go(${idx+1})">NEXT \u2192</button>`;
+  else h+=`<button class="foot-btn primary" onclick="go(3)">RECAP \u2192</button>`;
   h+=`</div></div>`;
   return h;
 }
