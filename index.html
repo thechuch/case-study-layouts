@@ -34,6 +34,8 @@
   /* Masthead */
   .masthead{position:relative;width:100%;overflow:hidden}
   .masthead img{width:100%;display:block;min-height:300px;object-fit:cover}
+  .masthead video{width:100%;display:block;min-height:300px;object-fit:cover}
+  .masthead .vid-mobile{display:none}
   .masthead-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,.1) 50%,transparent 100%)}
   .masthead-content{position:absolute;bottom:48px;left:48px;right:48px;color:#fff}
   .masthead h1{font-size:clamp(32px,6vw,56px);font-weight:700;line-height:1.1;margin-bottom:8px}
@@ -216,6 +218,7 @@
     .ed-giant-title{letter-spacing:-1px}
     .vid-desktop{display:none !important}
     .vid-mobile{display:block !important}
+    .masthead .vid-mobile{display:block !important}
   }
   @media(max-width:480px){
     .masthead h1{font-size:28px}
@@ -321,7 +324,12 @@ function sh(num,title){
 
 // Shared content helpers
 const masthead=(style="")=>`<div class="masthead" style="${style}">
-  ${img(I.hero,"min-height:400px")}
+  <video class="vid-desktop" autoplay muted loop playsinline poster="poster-horizontal.jpg">
+    <source src="field-notes-horizontal.mp4" type="video/mp4">
+  </video>
+  <video class="vid-mobile" autoplay muted loop playsinline poster="poster-vertical.jpg">
+    <source src="field-notes-vertical.mp4" type="video/mp4">
+  </video>
   <div class="masthead-overlay"></div>
   <div class="masthead-content">
     <div class="sub sans">${BRAND}</div>
@@ -403,9 +411,6 @@ function L1(){
     <p class="interstitial-quote">\u201C${PULL_QUOTE}\u201D</p>
   </div>`,0.1)+
 
-  // Responsive video — full bleed
-  fade(`<div class="bleed">${responsiveVideo()}</div>`,0.1)+
-
   // Section label
   fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE TASTING EXPERIENCE</div></div>`,0.08)+
 
@@ -461,8 +466,8 @@ function L2(){
   return sh("02","Narrative Arc")+
   `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Chapter-based storytelling \u2014 numbered sections, expandable accordions, and structured metadata. Each image group is preceded by a narrative heading that walks through the project chronologically.</p>`+
 
-  // Hero — full bleed
-  fade(`<div class="bleed">${img(I.hero,"width:100%;display:block")}</div>`)+
+  // Hero video — full bleed
+  fade(`<div class="bleed">${masthead()}</div>`)+
 
   // Metadata grid
   fade(`<div class="article-wide">
@@ -510,7 +515,6 @@ function L2(){
 
   // Chapter 04: The Experience
   fade(`<div class="article-wide">${narrHeading("04","THE EXPERIENCE")}<p class="interstitial-quote" style="margin:0 0 28px">\u201C${PULL_QUOTE}\u201D</p></div>`,0.1)+
-  fade(`<div class="bleed">${responsiveVideo()}</div>`,0.1)+
 
   // Chapter 05: The Gallery
   fade(`<div class="article-wide">${narrHeading("05","THE GALLERY")}<p style="max-width:600px">${COPY_GALLERY}</p></div>`,0.08)+
@@ -549,6 +553,9 @@ function L3(){
   return sh("03","Editorial")+
   `<p class="sans" style="text-align:center;font-size:14px;color:#999;margin:-20px 0 40px;padding:0 24px">Typography-forward opening \u2014 a large headline and extended narrative before any imagery. Includes pull-quote callouts, a stats block, and a \u201CRelated Projects\u201D grid footer. Reads like a design publication feature.</p>`+
 
+  // Hero video — full bleed
+  fade(`<div class="bleed">${masthead()}</div>`)+
+
   // Top bar: logo + meta
   fade(`<div class="article-wide" style="padding-top:16px">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:0 24px;margin-bottom:20px">
@@ -574,9 +581,6 @@ function L3(){
   // Rule
   fade(`<div class="article-wide" style="padding:0 24px"><div style="height:1px;background:#e0e0e0"></div></div>`,0.18)+
 
-  // Full-bleed hero (edge-to-edge)
-  fade(`<div class="bleed" style="margin:48px 0">${img(I.hero,"width:100%;display:block")}</div>`,0.2)+
-
   // Asymmetric — full bleed
   fade(`<div class="bleed" style="margin-top:8px"><div class="img-asym">
     ${img(I.a)}
@@ -590,9 +594,6 @@ function L3(){
       <div class="pullquote-attr">\u2014 Creative Director, Small Circle</div>
     </div>
   </div>`,0.1)+
-
-  // Responsive video — full bleed
-  fade(`<div class="bleed">${responsiveVideo()}</div>`,0.1)+
 
   // Results stats block
   fade(`<div class="article-wide" style="padding:0 24px">
