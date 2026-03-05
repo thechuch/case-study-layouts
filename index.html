@@ -193,6 +193,47 @@
   .related-card-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
   .related-card-type{font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase;font-weight:500}
 
+  /* ═══════════════════════════════════════════
+     WIREFRAME / SPEC VIEW
+     ═══════════════════════════════════════════ */
+  .wf-img{background:#e8e8e8;border:2px dashed #bbb;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 8px;position:relative;min-height:60px;max-height:320px;gap:2px}
+  .wf-img .wf-id{font:700 11px/1 'SF Mono',SFMono-Regular,Consolas,monospace;color:#555;letter-spacing:1px}
+  .wf-img .wf-name{font:500 9px/1.2 'Public Sans',sans-serif;color:#888;text-align:center;max-width:90%}
+  .wf-img .wf-ratio{font:600 9px/1 'SF Mono',monospace;color:#aaa;letter-spacing:.5px}
+  .wf-img .wf-cat{position:absolute;top:4px;right:6px;font:700 7px/1 'SF Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;padding:2px 5px;border-radius:2px}
+  .wf-img .wf-cat.core{background:#1a1a1a;color:#fff}
+  .wf-img .wf-cat.ext{background:#fff;color:#999;border:1px solid #ccc}
+  .wf-img .wf-note{font:400 8px/1.2 'Public Sans',sans-serif;color:#aaa;text-align:center;font-style:italic}
+
+  .wf-vid{background:#222;border:2px dashed #555;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;color:#999;gap:4px;min-height:200px;max-height:400px}
+  .wf-vid .wf-id{font:700 13px/1 'SF Mono',monospace;color:#fff;letter-spacing:2px}
+  .wf-vid .wf-name{font:500 10px/1.2 'Public Sans',sans-serif;color:#777}
+  .wf-vid .wf-ratio{font:600 9px/1 'SF Mono',monospace;color:#666}
+  .wf-vid .wf-cat{font:700 8px/1 'SF Mono',monospace;color:#4a9;letter-spacing:1px}
+
+  .wf-copy{background:#eef6f8;border:1px dashed #b0d4de;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-height:40px}
+  .wf-copy .wf-id{font:700 10px/1 'SF Mono',monospace;color:#3a8a9e;letter-spacing:1px}
+  .wf-copy .wf-name{font:500 9px/1.2 'Public Sans',sans-serif;color:#6aabb8}
+  .wf-copy .wf-words{font:400 8px/1 'SF Mono',monospace;color:#99c5ce}
+
+  .wf-comp{background:#f5f0e8;border:1px dashed #d4c9a8;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-height:36px}
+  .wf-comp .wf-id{font:700 10px/1 'SF Mono',monospace;color:#8a7a50;letter-spacing:1px}
+  .wf-comp .wf-name{font:500 8px/1.2 'Public Sans',sans-serif;color:#aa9a70}
+
+  .wf-legend{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:20px 24px;margin:24px auto;max-width:960px;font-family:'SF Mono',SFMono-Regular,Consolas,monospace}
+  .wf-legend h3{font:700 11px/1 'Public Sans',sans-serif;letter-spacing:3px;text-transform:uppercase;color:#999;margin-bottom:12px}
+  .wf-legend table{width:100%;border-collapse:collapse;font-size:9px;color:#666}
+  .wf-legend th{text-align:left;font-weight:700;color:#999;letter-spacing:1px;text-transform:uppercase;padding:4px 8px;border-bottom:1px solid #e8e8e8;font-size:8px}
+  .wf-legend td{padding:3px 8px;border-bottom:1px solid #f0f0f0;vertical-align:top}
+  .wf-legend .cat-core{color:#1a1a1a;font-weight:700}
+  .wf-legend .cat-ext{color:#999}
+
+  .wf-section-label{font:700 8px/1 'SF Mono',monospace;letter-spacing:3px;text-transform:uppercase;color:#bbb;padding:16px 0 8px}
+
+  .ls-wf{margin-left:16px;padding:6px 14px;border:1px solid #b0d4de;border-radius:4px;cursor:pointer;background:#fff;color:#6aabb8;font-size:10px;font-weight:700;letter-spacing:1.5px;transition:all .2s;font-family:inherit;text-transform:uppercase}
+  .ls-wf.active{background:#3a8a9e;color:#fff;border-color:#3a8a9e}
+  .ls-wf:hover:not(.active){border-color:#6aabb8;background:#eef6f8}
+
   /* Responsive video — desktop horizontal / mobile vertical */
   .responsive-video{position:relative;width:100%;background:#111}
   .responsive-video video{width:100%;display:block}
@@ -653,11 +694,287 @@ function L3(){
 }
 
 
+// ══════════════════════════════════════════════════════════
+// WIREFRAME / SPEC VIEW
+// Annotated layouts for Figma handoff — shows asset IDs,
+// copy block names, aspect ratios, and categories.
+// ══════════════════════════════════════════════════════════
+
+const wfImg=(id,name,ratio,cat,notes)=>{
+  const c=cat==="CORE"?"core":"ext";
+  return `<div class="wf-img" style="aspect-ratio:${ratio}">
+    <span class="wf-cat ${c}">${cat}</span>
+    <span class="wf-id">${id}</span>
+    <span class="wf-name">${name}</span>
+    <span class="wf-ratio">${ratio.replace("/",":")}</span>
+    ${notes?`<span class="wf-note">${notes}</span>`:""}
+  </div>`;
+};
+
+const wfCopy=(id,varName,desc,words)=>`<div class="wf-copy">
+  <span class="wf-id">${id} — ${varName}</span>
+  <span class="wf-name">${desc}</span>
+  <span class="wf-words">~${words} words</span>
+</div>`;
+
+const wfVid=()=>`<div class="wf-vid" style="aspect-ratio:16/9">
+  <span class="wf-id">VID-01</span>
+  <span class="wf-name">Hero Video — autoplay, muted, loop</span>
+  <span class="wf-ratio">Desktop: 16:9 (horizontal) / Mobile: 9:16 (vertical)</span>
+  <span class="wf-cat">CORE — Two versions required</span>
+</div>`;
+
+const wfComp=(label,desc)=>`<div class="wf-comp">
+  <span class="wf-id">${label}</span>
+  ${desc?`<span class="wf-name">${desc}</span>`:""}
+</div>`;
+
+const wfLegend=()=>`<div class="wf-legend">
+  <h3>Asset Inventory</h3>
+  <table>
+    <tr><th>ID</th><th>Asset</th><th>Ratio</th><th>Dims</th><th>Type</th></tr>
+    <tr><td>VID-01</td><td>Hero Video (horiz + vert)</td><td>16:9 / 9:16</td><td>Compressed MP4</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-01</td><td>"MADE WITH PASSION" starburst</td><td>~16:9</td><td>2204×1224</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-02</td><td>"Horticulturist meets mad scientist"</td><td>~16:9</td><td>2204×1224</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-03</td><td>Grower quote poster</td><td>3:4</td><td>2592×3456</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-04</td><td>Cultivars poster</td><td>3:4</td><td>2592×3456</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-05</td><td>Strain Card — Ray Charles</td><td>5:9</td><td>360×648</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-06</td><td>Strain Card — Jordanz</td><td>5:9</td><td>360×648</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-07</td><td>Strain Card — Titan Express</td><td>5:9</td><td>360×648</td><td class="cat-core">CORE</td></tr>
+    <tr><td>IMG-08</td><td>Atmosphere / venue wide shot</td><td>4:3</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+    <tr><td>IMG-09</td><td>Lab coats / tasting moment</td><td>8:5</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+    <tr><td>IMG-10</td><td>DJ + Food program</td><td>9:5</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+    <tr><td>IMG-11</td><td>BTS / behind the scenes</td><td>1:1</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+    <tr><td>IMG-12</td><td>Related — Select Live</td><td>4:3</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+    <tr><td>IMG-13</td><td>Related — Grassroots Rebrand</td><td>4:3</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+    <tr><td>IMG-14</td><td>Related — Curaleaf National</td><td>4:3</td><td>TBD</td><td class="cat-ext">EXTENDED</td></tr>
+  </table>
+  <h3 style="margin-top:16px">Copy Blocks</h3>
+  <table>
+    <tr><th>ID</th><th>Variable</th><th>Description</th><th>Words</th></tr>
+    <tr><td>COPY-01</td><td>COPY_LEAD</td><td>Project intro / overview</td><td>~48</td></tr>
+    <tr><td>COPY-02</td><td>COPY_DETAIL</td><td>Problem statement / context</td><td>~38</td></tr>
+    <tr><td>COPY-03</td><td>COPY_STRATEGY</td><td>Strategic approach / concept</td><td>~68</td></tr>
+    <tr><td>COPY-04</td><td>COPY_IDENTITY</td><td>Visual identity / design language</td><td>~46</td></tr>
+    <tr><td>COPY-05</td><td>COPY_GALLERY</td><td>Gallery installation</td><td>~42</td></tr>
+    <tr><td>COPY-06</td><td>COPY_TASTING</td><td>Tasting experience</td><td>~54</td></tr>
+    <tr><td>COPY-07</td><td>COPY_APPROACH</td><td>Insight & approach</td><td>~62</td></tr>
+    <tr><td>COPY-08</td><td>COPY_RESULTS</td><td>Results & impact</td><td>~52</td></tr>
+    <tr><td>COPY-09</td><td>PULL_QUOTE</td><td>Pull quote</td><td>~20</td></tr>
+    <tr><td>COPY-10</td><td>COPY_EXTENDED</td><td>Full narrative (2-column)</td><td>~142</td></tr>
+  </table>
+</div>`;
+
+
+// ── Wireframe Layout 1: Visual Mosaic ──
+function W1(){
+  return `<div class="bleed">${wfVid()}</div>`+
+
+  `<div class="article">${wfComp("META BAR","Logo + Year / Location / Trade Event")}</div>`+
+  `<div class="article">${wfComp("SERVICE PILLS","7 service tags in pill format")}</div>`+
+
+  `<div class="article" style="margin-top:16px">
+    ${wfCopy("COPY-01","COPY_LEAD","Project intro / overview",48)}
+    <div style="margin-top:8px">${wfComp("READ MORE TOGGLE","Expands to reveal COPY-02 + COPY-03")}</div>
+    <div style="margin-top:4px">${wfCopy("COPY-02","COPY_DETAIL","Problem statement (hidden by default)",38)}</div>
+    <div style="margin-top:4px">${wfCopy("COPY-03","COPY_STRATEGY","Strategic approach (hidden by default)",68)}</div>
+  </div>`+
+
+  `<div class="article"><div class="wf-section-label">SECTION: THE EVENT IDENTITY</div></div>`+
+
+  `<div class="bleed"><div class="img-pair-portrait">
+    ${wfImg("IMG-03","Grower quote poster","3/4","CORE")}
+    ${wfImg("IMG-04","Cultivars poster","3/4","CORE")}
+  </div></div>`+
+
+  `<div class="bleed" style="margin:8px 0">
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","16/9","CORE","Full-bleed wide")}
+  </div>`+
+
+  `<div class="article"><div class="wf-section-label">SECTION: THE GALLERY</div></div>`+
+
+  `<div class="bleed"><div class="img-asym">
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","16/9","CORE","Larger side of asymmetric pair")}
+    ${wfImg("IMG-04","Cultivars poster","3/4","CORE","Smaller side")}
+  </div></div>`+
+
+  `<div class="article">${wfCopy("COPY-09","PULL_QUOTE","Interstitial pull quote",20)}</div>`+
+
+  `<div class="article"><div class="wf-section-label">SECTION: THE TASTING EXPERIENCE</div></div>`+
+
+  `<div class="bleed"><div class="img-triple">
+    ${wfImg("IMG-05","Strain Card — Ray Charles","5/9","CORE")}
+    ${wfImg("IMG-06","Strain Card — Jordanz","5/9","CORE")}
+    ${wfImg("IMG-07","Strain Card — Titan Express","5/9","CORE")}
+  </div></div>`+
+
+  `<div class="bleed" style="margin:8px 0">
+    ${wfImg("IMG-01","'MADE WITH PASSION' starburst","16/9","CORE","Full-bleed break image")}
+  </div>`+
+
+  `<div class="article"><div class="wf-section-label">SECTION: THE ATMOSPHERE</div></div>`+
+
+  `<div class="bleed"><div class="img-asym-rev">
+    ${wfImg("IMG-04","Cultivars poster","3/4","CORE","Smaller side")}
+    ${wfImg("IMG-10","DJ + Food program","9/5","EXTENDED","Needs event photo")}
+  </div></div>`+
+
+  `<div style="text-align:center;padding:24px">
+    ${wfImg("IMG-11","BTS / behind the scenes","1/1","EXTENDED","Centered GIF — 50% width")}
+  </div>`+
+
+  `<div class="bleed"><div class="img-pair">
+    ${wfImg("IMG-09","Lab coats / tasting moment","8/5","EXTENDED","Needs event photo")}
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","4/3","CORE","Cropped to 4:3")}
+  </div></div>`+
+
+  `<div class="article" style="margin-top:24px">
+    ${wfComp("SECTION HEADING","'The Impact' + 'From one event to a national blueprint'")}
+    ${wfCopy("COPY-08","COPY_RESULTS","Results & impact",52)}
+  </div>`;
+}
+
+
+// ── Wireframe Layout 2: Narrative Arc ──
+function W2(){
+  return `<div class="bleed">${wfVid()}</div>`+
+
+  `<div class="article-wide">${wfComp("METADATA GRID","Category / Industry / Location / Client / Year — 5 columns")}</div>`+
+
+  `<div style="text-align:center;padding:24px">
+    ${wfComp("CENTERED HERO TITLE","Logo + 'Field Notes' heading + subtitle")}
+  </div>`+
+
+  `<div class="article-wide">
+    ${wfComp("EXPANDABLE ACCORDION","3 sections: About This Project (COPY-01 + COPY-02), Services (pills), Our Approach (COPY-07)")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("CH. 01 — THE BRIEF","")}
+    ${wfCopy("COPY-01","COPY_LEAD","Project intro / overview",48)}
+  </div>`+
+  `<div class="bleed" style="margin-top:8px">
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","16/9","CORE","Full-bleed")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("CH. 02 — THE CONCEPT","")}
+    ${wfCopy("COPY-03","COPY_STRATEGY","Strategic approach / concept",68)}
+  </div>`+
+  `<div class="bleed" style="margin-top:8px"><div class="img-pair">
+    ${wfImg("IMG-01","'MADE WITH PASSION' starburst","16/9","CORE")}
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","16/9","CORE")}
+  </div></div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("CH. 03 — THE IDENTITY","")}
+    ${wfCopy("COPY-04","COPY_IDENTITY","Visual identity / design language",46)}
+  </div>`+
+  `<div class="bleed" style="margin-top:8px"><div class="img-asym">
+    ${wfImg("IMG-10","DJ + Food program","9/5","EXTENDED","Needs event photo")}
+    ${wfImg("IMG-04","Cultivars poster","3/4","CORE")}
+  </div></div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("CH. 04 — THE EXPERIENCE","")}
+    ${wfCopy("COPY-09","PULL_QUOTE","Pull quote — interstitial",20)}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("CH. 05 — THE GALLERY","")}
+    ${wfCopy("COPY-05","COPY_GALLERY","Gallery installation",42)}
+  </div>`+
+  `<div class="bleed" style="margin-top:8px"><div class="img-pair-portrait">
+    ${wfImg("IMG-03","Grower quote poster","3/4","CORE")}
+    ${wfImg("IMG-04","Cultivars poster","3/4","CORE")}
+  </div></div>`+
+  `<div class="bleed" style="margin-top:8px">
+    ${wfImg("IMG-01","'MADE WITH PASSION' starburst","16/9","CORE","Full-bleed")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("CH. 06 — THE TASTING","")}
+    ${wfCopy("COPY-06","COPY_TASTING","Tasting experience",54)}
+  </div>`+
+  `<div class="bleed" style="margin-top:8px"><div class="img-triple">
+    ${wfImg("IMG-05","Strain Card — Ray Charles","5/9","CORE")}
+    ${wfImg("IMG-06","Strain Card — Jordanz","5/9","CORE")}
+    ${wfImg("IMG-07","Strain Card — Titan Express","5/9","CORE")}
+  </div></div>`+
+
+  `<div class="article-wide" style="margin-top:24px">${wfComp("CH. 07 — THE IMPACT","")}</div>`+
+  `<div class="bleed" style="margin-top:8px">
+    ${wfImg("IMG-01","'MADE WITH PASSION' starburst","16/9","CORE","Full-bleed")}
+  </div>`+
+  `<div class="article" style="margin-top:24px">
+    ${wfComp("SECTION HEADING","'The Impact' + 'From one event to a national blueprint'")}
+    ${wfCopy("COPY-08","COPY_RESULTS","Results & impact",52)}
+  </div>`;
+}
+
+
+// ── Wireframe Layout 3: Editorial ──
+function W3(){
+  return `<div class="bleed">${wfVid()}</div>`+
+
+  `<div class="article-wide" style="padding-top:16px">
+    ${wfComp("TOP BAR","Logo + Year / Location / Trade Event + divider rule")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:24px">
+    ${wfComp("GIANT TITLE","'Field Notes' — clamp(42px,10vw,80px) + subtitle + service pills")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:16px">
+    ${wfCopy("COPY-10","COPY_EXTENDED","Full narrative — rendered in 2-column layout",142)}
+  </div>`+
+
+  `<div class="article-wide">${wfComp("DIVIDER RULE","")}</div>`+
+
+  `<div class="bleed" style="margin-top:8px"><div class="img-asym">
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","16/9","CORE","Larger side")}
+    ${wfImg("IMG-03","Grower quote poster","3/4","CORE","Natural height, no crop")}
+  </div></div>`+
+
+  `<div class="article-wide" style="margin-top:16px">
+    ${wfCopy("COPY-09","PULL_QUOTE","Pull quote in bordered callout block",20)}
+    ${wfComp("QUOTE ATTRIBUTION","'— Creative Director, Small Circle'")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:16px">
+    ${wfComp("RESULTS STATS BLOCK","4-column grid: 200+ Budtenders / 8 Strains / 5+ Markets / 1 Brand Transformation")}
+  </div>`+
+
+  `<div class="bleed" style="margin-top:16px"><div class="img-triple">
+    ${wfImg("IMG-05","Strain Card — Ray Charles","5/9","CORE")}
+    ${wfImg("IMG-06","Strain Card — Jordanz","5/9","CORE")}
+    ${wfImg("IMG-07","Strain Card — Titan Express","5/9","CORE")}
+  </div></div>`+
+
+  `<div class="bleed" style="margin-top:8px">
+    ${wfImg("IMG-02","'Horticulturist meets mad scientist'","16/9","CORE","Full-bleed")}
+  </div>`+
+
+  `<div class="article-wide" style="margin-top:16px">${wfComp("DIVIDER RULE","")}</div>`+
+
+  `<div class="article-wide" style="margin-top:16px">
+    ${wfComp("RELATED PROJECTS HEADER","'Related Projects' + 'View All →'")}
+    <div class="related-grid">
+      ${wfImg("IMG-12","Related — Select Live","4/3","EXTENDED","Card: title + type label")}
+      ${wfImg("IMG-13","Related — Grassroots Rebrand","4/3","EXTENDED","Card: title + type label")}
+      ${wfImg("IMG-14","Related — Curaleaf National","4/3","EXTENDED","Card: title + type label")}
+    </div>
+  </div>`;
+}
+
+
 // ══════════════════════════════════════════════════
 // NAV, RENDER, NAVIGATION
 // ══════════════════════════════════════════════════
-const layoutFns=[L1,L2,L3];
+const previewFns=[L1,L2,L3];
+const wireFns=[W1,W2,W3];
 let current=0;
+let wireframe=false;
 
 const layoutNames=["Visual Mosaic","Narrative Arc","Editorial"];
 
@@ -667,18 +984,30 @@ function renderSwitcher(){
   layoutNames.forEach((name,i)=>{
     h+=`<button class="ls-btn${i===current?' active':''}" onclick="go(${i})">${name}</button>`;
   });
+  h+=`<button class="ls-wf${wireframe?' active':''}" onclick="toggleWF()">Spec View</button>`;
   h+=`</div>`;
   sw.innerHTML=h;
 }
 
 function render(){
   const wrap=document.getElementById("wrap");
-  wrap.innerHTML=`<div>${layoutFns[current]()}</div>`;
+  const fns=wireframe?wireFns:previewFns;
+  const content=fns[current]();
+  const legend=wireframe?wfLegend():"";
+  wrap.innerHTML=`<div>${content}</div>${legend}`;
   renderSwitcher();
-  setTimeout(()=>{
-    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.08});
-    document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
-  },50);
+  if(!wireframe){
+    setTimeout(()=>{
+      const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.08});
+      document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
+    },50);
+  }
+}
+
+function toggleWF(){
+  wireframe=!wireframe;
+  window.scrollTo({top:0});
+  render();
 }
 
 function go(idx){
