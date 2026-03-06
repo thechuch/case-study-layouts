@@ -7,12 +7,12 @@
 <style>
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap');
-  html{overflow-x:hidden}
-  body{background:#fff;color:#1a1a1a;font-family:'Public Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  html{overflow-x:clip}
+  body{background:#fff;color:#1a1a1a;font-family:'Public Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
   .sans{font-family:'Public Sans',-apple-system,'Helvetica Neue',sans-serif}
 
   /* Site Nav (placeholder) */
-  .site-nav{position:sticky;top:0;z-index:100;background:#111;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .site-nav{position:sticky;top:0;z-index:100;background:linear-gradient(to right,#111 0%,#111 10%,rgba(17,17,17,0.35) 35%,rgba(17,17,17,0.35) 65%,#111 90%,#111 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08)}
   .site-nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px;height:56px}
   .site-nav-logo{display:flex;align-items:center;gap:12px;color:#fff;font-size:13px;letter-spacing:4px;font-weight:400;text-transform:uppercase}
   .site-nav-logo .logo-icon{width:32px;height:32px;border-radius:50%;border:2px solid #c8860a;background:radial-gradient(circle at 60% 50%,#c8860a 0%,transparent 55%);flex-shrink:0}
