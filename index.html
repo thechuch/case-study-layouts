@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Small Circle — Case Study Layouts</title>
 <style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   html{overflow-x:clip}
   body{background:#fff;color:#1a1a1a;font-family:'Public Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
   .sans{font-family:'Public Sans',-apple-system,'Helvetica Neue',sans-serif}
@@ -1096,8 +1096,10 @@ function render(){
   renderSwitcher();
   if(!wireframe){
     setTimeout(()=>{
-      const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.08});
+      const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:0.01,rootMargin:"0px 0px 300px 0px"});
       document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
+      // Fallback: ensure all fade elements become visible within 3s
+      setTimeout(()=>{document.querySelectorAll(".fade:not(.visible)").forEach(el=>el.classList.add("visible"))},3000);
     },50);
   }
 }
