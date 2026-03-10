@@ -1066,15 +1066,551 @@ function W3(){
 }
 
 
+// ══════════════════════════════════════════════════════════
+// LAYOUT 4: Field Journal (Heavy inline)
+// Nearly all text-media pairs — journal/blog-like. Only the
+// masthead is full-bleed; everything else is constrained-width
+// with image on one side and descriptive copy on the other.
+// ══════════════════════════════════════════════════════════
+function L4(){
+  return fade(`<div class="bleed">${masthead()}</div>`)+
+
+  fade(metaBar(),0.1)+
+
+  fade(`<div class="article" style="margin-top:40px">
+    <p class="lead">${COPY_LEAD}</p>
+  </div>`,0.15)+
+
+  // TM 1: The Brief (text left, image right)
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Brief</div>
+      <p>${COPY_DETAIL}</p>
+    </div>
+    ${img(I.a)}
+  </div>`,0.1)+
+
+  // TM 2: The Concept (image left, text right)
+  fade(`<div class="text-media reverse">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Concept</div>
+      <p>${COPY_STRATEGY}</p>
+    </div>
+    ${img(I.f)}
+  </div>`,0.1)+
+
+  fade(`<div class="article-wide"><div class="divider"></div></div>`,0.08)+
+
+  // TM 3: The Identity (text left, image right)
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Identity</div>
+      <p>${COPY_IDENTITY}</p>
+    </div>
+    ${img(I.h)}
+  </div>`,0.1)+
+
+  fade(`<div class="article">
+    <p class="interstitial-quote">\u201C${PULL_QUOTE}\u201D</p>
+  </div>`,0.1)+
+
+  // TM 4: The Gallery (image left, text right)
+  fade(`<div class="text-media reverse">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Gallery</div>
+      <p>${COPY_GALLERY}</p>
+    </div>
+    ${img(I.hero)}
+  </div>`,0.1)+
+
+  // TM 5: The Tasting (text left, image right)
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Tasting</div>
+      <p>${COPY_TASTING}</p>
+    </div>
+    ${img(I.d)}
+  </div>`,0.1)+
+
+  fade(`<div class="article-wide"><div class="divider"></div></div>`,0.08)+
+
+  // TM 6: The Atmosphere (image left, text right)
+  fade(`<div class="text-media reverse">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Atmosphere</div>
+      <p>${COPY_APPROACH}</p>
+    </div>
+    ${img(I.c)}
+  </div>`,0.1)+
+
+  fade(`<div class="article" style="margin-top:56px">
+    <div class="h-section">The Impact</div>
+    <h2 class="h-article">From one event to a national blueprint</h2>
+    <p>${COPY_RESULTS}</p>
+  </div>`,0.1);
+}
+
+
+// ══════════════════════════════════════════════════════════
+// LAYOUT 5: Feature Story (Balanced inline)
+// Magazine long-form feature. Alternates between full-bleed
+// image sections and inline text-media sections ~50/50.
+// Includes pullquote block and results stats.
+// ══════════════════════════════════════════════════════════
+function L5(){
+  return fade(`<div class="bleed">${masthead()}</div>`)+
+
+  fade(metaBar(),0.1)+
+
+  fade(`<div class="article" style="margin-top:40px">
+    <p class="lead">${COPY_LEAD}</p>
+    <p>${COPY_DETAIL}</p>
+  </div>`,0.15)+
+
+  // Full-bleed image
+  fade(`<div class="bleed">${img(I.e,"width:100%;display:block")}</div>`,0.1)+
+
+  // TM: The Concept (text left, image right)
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Concept</div>
+      <p>${COPY_STRATEGY}</p>
+    </div>
+    ${img(I.f)}
+  </div>`,0.1)+
+
+  // TM: The Identity (image left, text right)
+  fade(`<div class="text-media reverse">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Identity</div>
+      <p>${COPY_IDENTITY}</p>
+    </div>
+    ${img(I.h)}
+  </div>`,0.1)+
+
+  // Full-bleed portrait pair
+  fade(`<div class="bleed"><div class="img-pair-portrait">
+    ${img(I.f)}
+    ${img(I.poster2,"aspect-ratio:3/4;object-fit:cover")}
+  </div></div>`,0.1)+
+
+  // Pull quote block
+  fade(`<div class="article-wide" style="padding:0 24px">
+    <div class="pullquote-block">
+      <p class="pullquote-text">\u201C${PULL_QUOTE}\u201D</p>
+      <div class="pullquote-attr">\u2014 Creative Director, Small Circle</div>
+    </div>
+  </div>`,0.1)+
+
+  // TM: The Gallery (text left, image right)
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Gallery</div>
+      <p>${COPY_GALLERY}</p>
+    </div>
+    ${img(I.hero)}
+  </div>`,0.1)+
+
+  // Full-bleed triple (strain cards)
+  fade(`<div class="bleed"><div class="img-triple">
+    ${img(I.s1)}
+    ${img(I.s2)}
+    ${img(I.s3)}
+  </div></div>`,0.1)+
+
+  // TM: The Tasting (image left, text right)
+  fade(`<div class="text-media reverse">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Tasting</div>
+      <p>${COPY_TASTING}</p>
+    </div>
+    ${img(I.d)}
+  </div>`,0.1)+
+
+  // Full-bleed hero
+  fade(`<div class="bleed">${img(I.hero,"width:100%;display:block")}</div>`,0.1)+
+
+  // Results stats
+  fade(`<div class="article-wide" style="padding:0 24px">
+    <div class="results-block">
+      <div class="result-item"><div class="result-num">200+</div><div class="result-label">Budtenders Hosted</div></div>
+      <div class="result-item"><div class="result-num">8</div><div class="result-label">Strains Featured</div></div>
+      <div class="result-item"><div class="result-num">5+</div><div class="result-label">Markets Replicated</div></div>
+      <div class="result-item"><div class="result-num">1</div><div class="result-label">Brand Transformation</div></div>
+    </div>
+  </div>`,0.1)+
+
+  fade(`<div class="article">
+    <div class="h-section">The Impact</div>
+    <h2 class="h-article">From one event to a national blueprint</h2>
+    <p>${COPY_RESULTS}</p>
+  </div>`,0.1);
+}
+
+
+// ══════════════════════════════════════════════════════════
+// LAYOUT 6: Gallery Plus (Light inline)
+// Image-forward like Visual Mosaic but weaves in 3 strategic
+// text-media inline sections at key narrative moments.
+// ══════════════════════════════════════════════════════════
+function L6(){
+  return fade(`<div class="bleed">${masthead()}</div>`)+
+
+  fade(metaBar(),0.1)+
+
+  fade(`<div class="article" style="margin-top:40px">
+    <p class="lead">${COPY_LEAD}</p>
+    <button class="read-more-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === 'READ MORE +' ? 'SHOW LESS \u2212' : 'READ MORE +'">READ MORE +</button>
+    <div class="read-more-content">
+      <p>${COPY_DETAIL}</p>
+    </div>
+  </div>`,0.15)+
+
+  // Section label
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE EVENT IDENTITY</div></div>`,0.08)+
+
+  // Portrait pair — full bleed
+  fade(`<div class="bleed"><div class="img-pair-portrait">
+    ${img(I.f)}
+    ${img(I.poster2,"aspect-ratio:3/4;object-fit:cover")}
+  </div></div>`,0.1)+
+
+  // INLINE #1: The Concept
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Concept</div>
+      <p>${COPY_STRATEGY}</p>
+    </div>
+    ${img(I.a)}
+  </div>`,0.1)+
+
+  // Full-bleed image
+  fade(`<div class="bleed" style="margin:8px 0">${img(I.e,"width:100%;display:block")}</div>`,0.1)+
+
+  // Section label
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE GALLERY</div></div>`,0.08)+
+
+  // Asymmetric — full bleed
+  fade(`<div class="bleed"><div class="img-asym">
+    ${img(I.a)}
+    ${img(I.h)}
+  </div></div>`,0.1)+
+
+  // Pull quote
+  fade(`<div class="article">
+    <p class="interstitial-quote">\u201C${PULL_QUOTE}\u201D</p>
+  </div>`,0.1)+
+
+  // Section label
+  fade(`<div class="article" style="margin-top:48px;margin-bottom:16px"><div class="section-label">THE TASTING EXPERIENCE</div></div>`,0.08)+
+
+  // Triple grid — full bleed
+  fade(`<div class="bleed"><div class="img-triple">
+    ${img(I.s1)}
+    ${img(I.s2)}
+    ${img(I.s3)}
+  </div></div>`,0.1)+
+
+  // INLINE #2: The Tasting
+  fade(`<div class="text-media reverse">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Tasting</div>
+      <p>${COPY_TASTING}</p>
+    </div>
+    ${img(I.d)}
+  </div>`,0.1)+
+
+  // Image pair — full bleed
+  fade(`<div class="bleed"><div class="img-pair">
+    ${img(I.g)}
+    ${img(I.c)}
+  </div></div>`,0.1)+
+
+  // INLINE #3: The Atmosphere
+  fade(`<div class="text-media">
+    <div class="tm-text">
+      <div class="h-section" style="margin-top:0">The Atmosphere</div>
+      <p>${COPY_APPROACH}</p>
+    </div>
+    ${img(I.gif,"border-radius:6px")}
+  </div>`,0.1)+
+
+  fade(`<div class="article" style="margin-top:56px">
+    <div class="h-section">The Impact</div>
+    <h2 class="h-article">From one event to a national blueprint</h2>
+    <p>${COPY_RESULTS}</p>
+  </div>`,0.1);
+}
+
+
+// ── Wireframe Layout 4: Field Journal ──
+function W4(){
+  rowN=0;
+  return wfTitle("Field Journal")+
+
+  wfRow("VIDEO HERO + MASTHEAD","FULL BLEED — 100vw",
+    wfVid()+
+    `<div style="margin-top:8px">${wfComp("OVERLAY TEXT","GRASSROOTS · Field Notes · subtitle — positioned bottom-left over gradient")}</div>`
+  )+
+
+  wfRow("META BAR + SERVICES","ARTICLE — max 720px",
+    wfComp("CLIENT LOGO + META","GR logo circle · GRASSROOTS · 2025 · Illinois · Trade Event")+
+    wfComp("SERVICE PILLS","Event Design · Brand Activation · Experiential Marketing · Art Direction · Environmental Design · Content Production · Motion Design")
+  )+
+
+  wfRow("LEAD COPY","ARTICLE — max 720px",
+    wfCopy("COPY-01","COPY_LEAD","Project intro / overview — .lead style",48)
+  )+
+
+  wfRow("TEXT-MEDIA · THE BRIEF","TEXT-MEDIA — max 960px · 1fr 1fr · 48px gap",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-02","COPY_DETAIL","Problem statement / context",38)+
+      wfImg("IMG-02","'Horticulturist meets mad scientist'","~16:9","CORE","Right column")
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE CONCEPT","TEXT-MEDIA REVERSED — max 960px · image left, text right",
+    wfGrid("cols-2","IMAGE LEFT · TEXT RIGHT",
+      wfImg("IMG-03","Grower quote poster","3:4","CORE","Left column")+
+      wfCopy("COPY-03","COPY_STRATEGY","Strategic approach / concept",68)
+    )
+  )+
+
+  wfRow("DIVIDER","WIDE — max 960px",
+    wfComp("HORIZONTAL RULE","1px #e0e0e0 divider")
+  )+
+
+  wfRow("TEXT-MEDIA · THE IDENTITY","TEXT-MEDIA — max 960px · text left, image right",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-04","COPY_IDENTITY","Visual identity / design language",46)+
+      wfImg("IMG-04","Cultivars poster","3:4","CORE","Right column")
+    )
+  )+
+
+  wfRow("PULL QUOTE","ARTICLE — max 720px",
+    wfCopy("COPY-09","PULL_QUOTE","Interstitial italic pull quote",20)
+  )+
+
+  wfRow("TEXT-MEDIA · THE GALLERY","TEXT-MEDIA REVERSED — max 960px · image left, text right",
+    wfGrid("cols-2","IMAGE LEFT · TEXT RIGHT",
+      wfImg("IMG-01","'MADE WITH PASSION' starburst","~16:9","CORE","Left column")+
+      wfCopy("COPY-05","COPY_GALLERY","Gallery installation description",42)
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE TASTING","TEXT-MEDIA — max 960px · text left, image right",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-06","COPY_TASTING","Tasting experience description",54)+
+      wfImg("IMG-09","Lab coats / tasting moment","8:5","EXTENDED","Right column · Needs event photo")
+    )
+  )+
+
+  wfRow("DIVIDER","WIDE — max 960px",
+    wfComp("HORIZONTAL RULE","1px #e0e0e0 divider")
+  )+
+
+  wfRow("TEXT-MEDIA · THE ATMOSPHERE","TEXT-MEDIA REVERSED — max 960px · image left, text right",
+    wfGrid("cols-2","IMAGE LEFT · TEXT RIGHT",
+      wfImg("IMG-08","Atmosphere / venue wide shot","4:3","EXTENDED","Left column · Needs event photo")+
+      wfCopy("COPY-07","COPY_APPROACH","Insight & overall approach",62)
+    )
+  )+
+
+  wfRow("THE IMPACT — RESULTS","ARTICLE — max 720px",
+    wfComp("SECTION HEADING","h-section: 'The Impact' · h-article: 'From one event to a national blueprint'")+
+    wfCopy("COPY-08","COPY_RESULTS","Results narrative — final copy block",52)
+  );
+}
+
+
+// ── Wireframe Layout 5: Feature Story ──
+function W5(){
+  rowN=0;
+  return wfTitle("Feature Story")+
+
+  wfRow("VIDEO HERO + MASTHEAD","FULL BLEED — 100vw",
+    wfVid()+
+    `<div style="margin-top:8px">${wfComp("OVERLAY TEXT","GRASSROOTS · Field Notes · subtitle — positioned bottom-left over gradient")}</div>`
+  )+
+
+  wfRow("META BAR + SERVICES","ARTICLE — max 720px",
+    wfComp("CLIENT LOGO + META","GR logo circle · GRASSROOTS · 2025 · Illinois · Trade Event")+
+    wfComp("SERVICE PILLS","Event Design · Brand Activation · Experiential Marketing · Art Direction · Environmental Design · Content Production · Motion Design")
+  )+
+
+  wfRow("LEAD + DETAIL COPY","ARTICLE — max 720px",
+    wfCopy("COPY-01","COPY_LEAD","Project intro / overview — .lead style",48)+
+    wfCopy("COPY-02","COPY_DETAIL","Problem statement / context",38)
+  )+
+
+  wfRow("FULL-BLEED IMAGE","FULL BLEED — 100vw",
+    wfImg("IMG-02","'Horticulturist meets mad scientist'","~16:9","CORE","Full width, no crop")
+  )+
+
+  wfRow("TEXT-MEDIA · THE CONCEPT","TEXT-MEDIA — max 960px · text left, image right",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-03","COPY_STRATEGY","Strategic approach / concept",68)+
+      wfImg("IMG-03","Grower quote poster","3:4","CORE","Right column")
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE IDENTITY","TEXT-MEDIA REVERSED — max 960px · image left, text right",
+    wfGrid("cols-2","IMAGE LEFT · TEXT RIGHT",
+      wfImg("IMG-04","Cultivars poster","3:4","CORE","Left column")+
+      wfCopy("COPY-04","COPY_IDENTITY","Visual identity / design language",46)
+    )
+  )+
+
+  wfRow("PORTRAIT PAIR","FULL BLEED — 100vw",
+    wfGrid("cols-2","2-COLUMN PORTRAIT PAIR · aspect-ratio 3:4 · object-fit cover",
+      wfImg("IMG-03","Grower quote poster","3:4","CORE","Purple background")+
+      wfImg("IMG-04","Cultivars poster","3:4","CORE","Dark green background")
+    )
+  )+
+
+  wfRow("PULL QUOTE CALLOUT","WIDE — max 960px",
+    wfCopy("COPY-09","PULL_QUOTE","Bordered pull quote block — 3px left border · large text",20)+
+    wfComp("ATTRIBUTION","'— Creative Director, Small Circle' · 11px uppercase")
+  )+
+
+  wfRow("TEXT-MEDIA · THE GALLERY","TEXT-MEDIA — max 960px · text left, image right",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-05","COPY_GALLERY","Gallery installation description",42)+
+      wfImg("IMG-01","'MADE WITH PASSION' starburst","~16:9","CORE","Right column")
+    )
+  )+
+
+  wfRow("STRAIN CARDS — TRIPLE","FULL BLEED — 100vw",
+    wfGrid("cols-3","3-COLUMN GRID · equal widths · strain tasting cards",
+      wfImg("IMG-05","Strain Card — Ray Charles","5:9","CORE","Purple card")+
+      wfImg("IMG-06","Strain Card — Jordanz","5:9","CORE","Coral card")+
+      wfImg("IMG-07","Strain Card — Titan Express","5:9","CORE","Gold card")
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE TASTING","TEXT-MEDIA REVERSED — max 960px · image left, text right",
+    wfGrid("cols-2","IMAGE LEFT · TEXT RIGHT",
+      wfImg("IMG-09","Lab coats / tasting moment","8:5","EXTENDED","Left column · Needs event photo")+
+      wfCopy("COPY-06","COPY_TASTING","Tasting experience description",54)
+    )
+  )+
+
+  wfRow("FULL-BLEED HERO","FULL BLEED — 100vw",
+    wfImg("IMG-01","'MADE WITH PASSION' starburst","~16:9","CORE","Full width, visual break")
+  )+
+
+  wfRow("RESULTS STATS","WIDE — max 960px",
+    wfComp("STATS BLOCK","4-column responsive grid · #f8f8f8 background · rounded corners")+
+    wfGrid("cols-2","STAT ITEMS",
+      wfComp("200+","Budtenders Hosted · large number + small label")+
+      wfComp("8","Strains Featured")+
+      wfComp("5+","Markets Replicated")+
+      wfComp("1","Brand Transformation")
+    )
+  )+
+
+  wfRow("THE IMPACT — RESULTS","ARTICLE — max 720px",
+    wfComp("SECTION HEADING","h-section: 'The Impact' · h-article: 'From one event to a national blueprint'")+
+    wfCopy("COPY-08","COPY_RESULTS","Results narrative — final copy block",52)
+  );
+}
+
+
+// ── Wireframe Layout 6: Gallery Plus ──
+function W6(){
+  rowN=0;
+  return wfTitle("Gallery Plus")+
+
+  wfRow("VIDEO HERO + MASTHEAD","FULL BLEED — 100vw",
+    wfVid()+
+    `<div style="margin-top:8px">${wfComp("OVERLAY TEXT","GRASSROOTS · Field Notes · subtitle — positioned bottom-left over gradient")}</div>`
+  )+
+
+  wfRow("META BAR + SERVICES","ARTICLE — max 720px",
+    wfComp("CLIENT LOGO + META","GR logo circle · GRASSROOTS · 2025 · Illinois · Trade Event")+
+    wfComp("SERVICE PILLS","Event Design · Brand Activation · Experiential Marketing · Art Direction · Environmental Design · Content Production · Motion Design")
+  )+
+
+  wfRow("LEAD COPY + READ MORE","ARTICLE — max 720px",
+    wfCopy("COPY-01","COPY_LEAD","Project intro / overview — always visible",48)+
+    wfComp("READ MORE TOGGLE","Click to expand hidden copy below")+
+    wfCopy("COPY-02","COPY_DETAIL","Problem statement — hidden by default",38)
+  )+
+
+  wfRow("THE EVENT IDENTITY","FULL BLEED — 100vw",
+    wfGrid("cols-2","2-COLUMN PORTRAIT PAIR · aspect-ratio 3:4 · object-fit cover",
+      wfImg("IMG-03","Grower quote poster","3:4","CORE","Purple background")+
+      wfImg("IMG-04","Cultivars poster","3:4","CORE","Dark green background")
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE CONCEPT","TEXT-MEDIA — max 960px · text left, image right · INLINE #1",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-03","COPY_STRATEGY","Strategic approach / concept",68)+
+      wfImg("IMG-02","'Horticulturist meets mad scientist'","~16:9","CORE","Right column")
+    )
+  )+
+
+  wfRow("FULL-BLEED IMAGE","FULL BLEED — 100vw",
+    wfImg("IMG-02","'Horticulturist meets mad scientist'","~16:9","CORE","Full width")
+  )+
+
+  wfRow("THE GALLERY","FULL BLEED — 100vw",
+    wfGrid("cols-asym","ASYMMETRIC GRID · 1.6fr + 1fr · object-fit cover, stretch to equal height",
+      wfImg("IMG-02","'Horticulturist meets mad scientist'","~16:9","CORE","Larger column")+
+      wfImg("IMG-04","Cultivars poster","3:4","CORE","Smaller column")
+    )
+  )+
+
+  wfRow("PULL QUOTE","ARTICLE — max 720px",
+    wfCopy("COPY-09","PULL_QUOTE","Interstitial italic pull quote",20)
+  )+
+
+  wfRow("THE TASTING EXPERIENCE","FULL BLEED — 100vw",
+    wfGrid("cols-3","3-COLUMN GRID · equal widths · strain tasting cards",
+      wfImg("IMG-05","Strain Card — Ray Charles","5:9","CORE","Purple card")+
+      wfImg("IMG-06","Strain Card — Jordanz","5:9","CORE","Coral card")+
+      wfImg("IMG-07","Strain Card — Titan Express","5:9","CORE","Gold card")
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE TASTING","TEXT-MEDIA REVERSED — max 960px · INLINE #2",
+    wfGrid("cols-2","IMAGE LEFT · TEXT RIGHT",
+      wfImg("IMG-09","Lab coats / tasting moment","8:5","EXTENDED","Left column · Needs event photo")+
+      wfCopy("COPY-06","COPY_TASTING","Tasting experience description",54)
+    )
+  )+
+
+  wfRow("IMAGE PAIR","FULL BLEED — 100vw",
+    wfGrid("cols-2","2-COLUMN EQUAL · standard pair",
+      wfImg("IMG-10","DJ + Food program","9:5","EXTENDED","Needs event photo")+
+      wfImg("IMG-08","Atmosphere / venue wide shot","4:3","EXTENDED","Needs event photo")
+    )
+  )+
+
+  wfRow("TEXT-MEDIA · THE ATMOSPHERE","TEXT-MEDIA — max 960px · INLINE #3",
+    wfGrid("cols-2","TEXT LEFT · IMAGE RIGHT",
+      wfCopy("COPY-07","COPY_APPROACH","Insight & overall approach",62)+
+      wfImg("IMG-11","BTS / behind the scenes","1:1","EXTENDED","Right column · GIF asset")
+    )
+  )+
+
+  wfRow("THE IMPACT — RESULTS","ARTICLE — max 720px",
+    wfComp("SECTION HEADING","h-section: 'The Impact' · h-article: 'From one event to a national blueprint'")+
+    wfCopy("COPY-08","COPY_RESULTS","Results narrative — final copy block",52)
+  );
+}
+
+
 // ══════════════════════════════════════════════════
 // NAV, RENDER, NAVIGATION
 // ══════════════════════════════════════════════════
-const previewFns=[L1,L2,L3];
-const wireFns=[W1,W2,W3];
+const previewFns=[L1,L2,L3,L4,L5,L6];
+const wireFns=[W1,W2,W3,W4,W5,W6];
 let current=0;
 let wireframe=false;
 
-const layoutNames=["Visual Mosaic","Narrative Arc","Editorial"];
+const layoutNames=["Visual Mosaic","Narrative Arc","Editorial","Field Journal","Feature Story","Gallery Plus"];
 
 function renderSwitcher(){
   const sw=document.getElementById("switcher");
